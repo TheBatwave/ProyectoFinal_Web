@@ -1,0 +1,61 @@
+:root {
+    --bg-dark: #141414;       /* Negro Netflix */
+    --bg-card: #1f1f1f;
+    --primary: #e50914;       /* Rojo Netflix (o usa tu verde #98ca3f si prefieres) */
+    --text: #ffffff;
+    --text-muted: #b3b3b3;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; }
+
+body { background-color: var(--bg-dark); color: var(--text); padding-bottom: 50px; }
+a { text-decoration: none; color: inherit; transition: 0.3s; }
+
+/* NAVBAR */
+nav {
+    display: flex; justify-content: space-between; align-items: center;
+    padding: 15px 4%; background: rgba(0,0,0,0.9); position: sticky; top: 0; z-index: 100;
+}
+.logo { font-size: 1.5rem; font-weight: bold; color: var(--primary); text-transform: uppercase; }
+.nav-links a { margin-left: 20px; font-size: 0.9rem; }
+.btn-primary { background: var(--primary); color: white; padding: 7px 15px; border-radius: 4px; font-weight: bold; }
+.btn-primary:hover { background: #f40612; }
+
+/* FORMULARIOS (LOGIN/REGISTRO) */
+.auth-container {
+    height: 90vh; display: flex; justify-content: center; align-items: center;
+    background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.8)), url('../img/fondo.jpg');
+    background-size: cover;
+}
+.form-box {
+    background: rgba(0,0,0,0.75); padding: 60px; border-radius: 10px; width: 100%; max-width: 450px;
+}
+.form-box h2 { margin-bottom: 30px; font-size: 2rem; }
+input {
+    width: 100%; padding: 15px; margin-bottom: 15px; border-radius: 5px; border: none;
+    background: #333; color: white;
+}
+button.submit-btn {
+    width: 100%; padding: 15px; background: var(--primary); color: white; border: none;
+    border-radius: 5px; font-weight: bold; cursor: pointer; font-size: 1rem; margin-top: 20px;
+}
+
+/* CARRUSELES (ESTILO NETFLIX) */
+.category-row { margin: 20px 4%; }
+.category-title { font-size: 1.2rem; margin-bottom: 10px; font-weight: bold; color: #e5e5e5; }
+.scroll-container {
+    display: flex; gap: 10px; overflow-x: auto; padding-bottom: 20px; scrollbar-width: none; /* Ocultar scrollbar */
+}
+.scroll-container::-webkit-scrollbar { display: none; }
+
+.card {
+    min-width: 250px; height: 140px; border-radius: 4px; overflow: hidden; position: relative;
+    transition: transform 0.3s; cursor: pointer; background: #333;
+}
+.card:hover { transform: scale(1.05); z-index: 10; }
+.card img { width: 100%; height: 100%; object-fit: cover; }
+.card-info {
+    position: absolute; bottom: 0; left: 0; right: 0; background: linear-gradient(to top, black, transparent);
+    padding: 10px; opacity: 0; transition: 0.3s;
+}
+.card:hover .card-info { opacity: 1; }
